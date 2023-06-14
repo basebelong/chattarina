@@ -1,2 +1,2 @@
-openai
-dotenv
+openai==latest
+dotenv==latest
