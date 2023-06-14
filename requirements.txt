@@ -1,2 +1,2 @@
-openai==latest
+openai==0.27.8
 dotenv==latest
