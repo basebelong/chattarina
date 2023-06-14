@@ -10,6 +10,10 @@ openai.api_key = env_variables.get("OPENAI_API_KEY")
 while True:
   print("\033[1m")
   question = input("User: ")
+
+  if question.lower() == 'quit' or question.lower() == 'exit':
+    exit()
+
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     temperature=0.7,
