@@ -1,28 +1,33 @@
 #!/usr/bin/env bash
 
 # Install, update and run wrapper for chattarina.py
-# Assumes the user has a ~/.local/bin to run from.
+# Assumes the user has a ~/.local/bin in $PATH to run from.
 
 # Install - will prompt for API key
 if [[ $1 == "-i" ]] || [[ $1 == "--install" ]]; then
 	mkdir -p ~/.local/opt
 	cd ~/.local/opt
 	git clone git@github.com:basebelong/chattarina.git \
-		|| { echo "Error cloneing repo"; exit 1; }
+		|| { echo "Error cloning repo"; exit 1; }
 
-	if ! [ -f ~/.local/opt/chattarina ]; then
+	if ! [ -f ~/.local/opt/chattarina/.env ]; then
 		touch ~/.local/opt/chattarina/.env
 		echo -n "Enter your OpenAI API key for ChatGPT: "
 		read openai_api_key
 		echo "OPENAI_API_KEY=${openai_api_key}" > ~/.local/opt/chattarina/.env
 	fi
 
-    cd ~/.local/opt/chattarin
-    source venv/bin/activate \
-        && pip install -r requirements.txt
+	cd ~/.local/opt/chattarina
+	# Better to have all deps in a venv
+	if ! [ -d venv ]; then
+		python3 -m venv venv
+	fi
+	source venv/bin/activate \
+		&& pip install -r requirements.txt
+	exit
 fi
 
-# Updates bu git pull.
+# Updates by git pull.
 if [[ $1 == "-u" ]] || [[ $1 == "--update" ]]; then
 	cd ~/.local/opt/chattarina
 	git pull \
@@ -33,10 +38,6 @@ fi
 
 cd ~/.local/opt/chattarina
 
-# Better to have all deps in a venv
-if ! [ -d venv ]; then
-	python3 -m venv venv
-fi
 
 # Actually run it!
 source venv/bin/activate
