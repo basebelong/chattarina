@@ -36,7 +36,8 @@ if [[ $1 == "-u" ]] || [[ $1 == "--update" ]]; then
 	exit
 fi
 
-cd ~/.local/opt/chattarina
+cd ~/.local/opt/chattarina \
+    || { echo "chattarina does not seem to be installed. First run it with the --install flag:\n  chattarina --install"; exit 1; }
 
 
 # Actually run it!
