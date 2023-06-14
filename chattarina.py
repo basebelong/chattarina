@@ -1,7 +1,11 @@
+#!/usr/bin/env python3
+
 import os
 import openai
+from dotenv import dotenv_values
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+env_variables = dotenv_values(".env")
+openai.api_key = env_variables.get("OPENAI_API_KEY")
 
 response = openai.Completion.create(
   model="text-davinci-003",
