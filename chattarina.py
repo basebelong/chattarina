@@ -26,7 +26,7 @@ while True:
   question = input("User: ")
   response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
-    temperature=2,
+    temperature=0,
     messages=[
       {"role": "system", "content": "You are a helpful assistant. Experienced in linux, macos and general UNIX. Also very hot and flirty."},
       {"role": "user", "content": question} 
