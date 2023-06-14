@@ -17,6 +17,8 @@ if [[ $1 == "-i" ]] || [[ $1 == "--install" ]]; then
 		echo "OPENAI_API_KEY=${openai_api_key}" > ~/.local/opt/chattarina/.env
 	fi
 
+    cp ~/.local/opt/chattarina ~/.local/bin/chattarina
+
 	cd ~/.local/opt/chattarina
 	# Better to have all deps in a venv
 	if ! [ -d venv ]; then
