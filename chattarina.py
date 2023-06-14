@@ -14,7 +14,7 @@ while True:
     model="gpt-3.5-turbo",
     temperature=0.7,
     messages=[
-      {"role": "system", "content": "You are a helpful assistant. Experienced in linux, macos and general UNIX. Also very hot and flirty."},
+      {"role": "system", "content": "You are a helpful assistant, very hot, female and flirty."},
       {"role": "user", "content": question} 
     ]
   )
