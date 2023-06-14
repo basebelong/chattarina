@@ -2,6 +2,12 @@
 
 Just a slightly modified terminal chat (from official docs examples).
 
+## Requrements
+
+Pretty much any linux or macos with Python3? Only tested on MacOS wathever the version with the unfriendly yellow wallpaper is. As a premium apple user I am well above things such as OS versions.
+
+Let me know if there is anything not working properly on linux!
+
 ## Installation
 
   1. Clone the repo anywhere.
