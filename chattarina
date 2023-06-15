@@ -9,7 +9,7 @@ if [[ $1 == "-i" ]] || [[ $1 == "--install" ]]; then
 	mkdir -p ~/.local/opt
     mkdir -p ~/.local/bin
 	cd ~/.local/opt
-	git clone "${repo} \
+	git clone "${repo}" \
 		|| { echo "Error cloning repo"; exit 1; }
 
 	if ! [ -f ~/.local/opt/chattarina/.env ]; then
